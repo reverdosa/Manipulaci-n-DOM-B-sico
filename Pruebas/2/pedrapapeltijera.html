@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel, Tijera</title>
+    <script>
+        //FUNCIÓN PARA LAS ALERTAS
+function alertaDeElecciones( quienElije , eleccion ) {
+    if ( eleccion == 1 ) {
+        alert( "El " + quienElije + " eligió 🥌" );
+    } else if ( eleccion == 2 ) {
+        alert( "El " + quienElije + " eligió 📄" );
+    } else if ( eleccion == 3 ) {
+        alert( "El " + quienElije + " eligió ✂️" );
+    } else {
+        alert( "Hubo un error con la elección del " + quienElije + " 🙃" );
+    }
+}
+
+//FUNCIÓN PARA GENERAR NÚMEROS ALEATORIOS
+function numeroAleatorio( min , max ) {
+    return Math.floor( Math.random() * ( max - min + 1 ) + min );
+}
+
+//FUNCIÓN PARA DECIDIR EL GANADOR
+function quienGanaEntre ( eleccionJugador , eleccionOponente ) {
+    if ( eleccionJugador == eleccionOponente ) {
+        alert( "¡EMPATE! 🤼" );
+    } else if ( eleccionJugador == 1 && eleccionOponente == 3 ) {
+        alert( "¡GANASTE! 🥳" );
+    } else if ( eleccionJugador == 2 && eleccionOponente == 1 ) {
+        alert( "¡GANASTE! 🥳" );
+    } else if ( eleccionJugador == 3 && eleccionOponente == 2 ) {
+        alert( "¡GANASTE! 🥳" );
+    } else {
+        alert( "PERDISTE... 😢" );
+    }
+}
+
+//ELECCIÓN DEL JUGADOR
+let eleccionDelJugador = 0;
+eleccionDelJugador = prompt( "Elige: 1 para 🥌, 2 para 📄, 3 para ✂️" );
+alertaDeElecciones( "jugador" , eleccionDelJugador );
+
+//ELECCIÓN DEL COMPUTADOR
+let eleccionDelComputador = numeroAleatorio( 1 , 3 );
+alertaDeElecciones( "computador" , eleccionDelComputador );
+
+//DECIDIENDO EL GANADOR
+quienGanaEntre ( eleccionDelJugador , eleccionDelComputador );
+    </script>        
+</head>
+<body>
+    <h1>Piedra, Papel, Tijera</h1>
+</body>
+</html>
